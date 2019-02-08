@@ -1,0 +1,53 @@
+ORIENTE OBJET :
+
+INCONVENIENTS :
+
+    - Techniquement, on peut rien faire de plus avec l'orienté objet qu'avec le procédural
+    - En général, l'approche orienté objet est moins intuitive que l'approche procédural pour l'espris humain
+    - Lègère perte de performance (peuvant etre amélioré par divers moyen d'optimisation).
+
+AVANTAGES :
+
+    - Modulariser afin d'avoir un code évolutif
+    - Encourage le travail collaboratif ( pas besoin de ré-ouvrir toutes les page, l'UML permet de décrire le comportement de l'application et les intéractions entre les objets)
+    - Masquer la complexité grace au principe d'encapulation
+    - Possibilité de documenter le code
+    - Ré-utilisation du code, ne pas repartir de 0, effectuer un code type pouvantêtre repris sur d'autrs projet. code généric
+        -> C'est ce que donne des modules sur DRUPAL, c'est aussi comme que sont nés les framework, avec des bibliothèques que les développeurs se constituaient, ils ré-utilisaient ce q'ils faisaient
+        -> Exemple : Apple ne vas pas repartir de 0.. ils vont reprendre l'iphone 6 est le modifier pour sortir une meilleure version
+    - Simplifier la maintenance / mise a jour
+        -> Tout ce passe dans la classe en question
+    - Assouplir, factoriser le code, meilleur conceptualisation
+        -> Les pages seront moins chargés
+    - Plus d'options dans le langage (héritage, surcharge, abstraction, finalisation, interface ect...)
+    - Cela vous permettra de passer plus facilement aux technoligies java, .net, c#, c++ ect...
+
+
+CONCLUSION :
+
+    -Vous n'aurez pas besoin d'orienté objet pour par exemple 'la Boutique' réalisée en procédural mais pour tous les projet de grande envergues, avec des équipes de développement, mis à jour régulièrement.
+
+    class Membre
+    {
+        $pseudo, $mdp;
+        public function seConnecter();
+        public function sInscrire(); 
+    }
+
+    class Panier
+    {
+        $nbProduits, $prix;
+        public function ajouterArticleDansPanier();
+        public function retirerArticleDansPanier();
+    }
+
+
+VOCABULAIRE :
+
+    * Variable = propriété =attribut
+    * Fonction = méthode
+    * Instance = objet
+
+    Une classe permet de contenir des variables, avec des information, ainsi que des méthodes comportant des traitements.
+    --> Une classe est un regroupement d'informations (Plan, modèle)
+    --> Objet = application du plan (enfant de la classe).
