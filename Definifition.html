@@ -1,41 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h2> PHP POO </h2>
 
     <h2>Une Class et les Type Arguments</h2>
+    <p>La classe est le plan de contruction / $panier1 represente un exemple de la classe</p>
     <ul>
         <li>public : accessible de partout</li>
         <li>protected : accessible dans la classe mère et heriotières</li>
         <li>private : accessible dans la classe mère</li>
-    </ul> 
-
-    <p> <strong>'new'</strong>  est un mot clé permettant d'effectuer un instanciation une classe peut produire plusieurs objet. Nous pouvons effectuer plusieurs instanciation 'new' . <br>
-    $panier1 represente l'objet issu de la classe 'Panier'<br>
-    La classe est le plan de contruction / $panier1 represente un exemple de la classe </p> 
-
-<!--  -->
-    <h2>Getter / Setteur / Constructeur</h2>
-    <p> exemple : d'insertion: c'est le getteur qui permettrait d'exploiter la donnée finale et de l'inserer dans la BDD <br>
-    $bdd->exec(INSERT INTO employes (prenom) VALU ($etudiant->getPrenom()));</p>
-
-    <p> __construct() est une méthode magique qui s'execute automatiquement, elle sers l'equivalent du init.php avec session_star(), connexion à la BDD, autoload ect ...</p>
-    <ul>
-        <li> setteur : permet de controler les données </li> 
-        <li> getteur : permet de voir / exploiter les données finales</li>
-        <li> Private $prenom : la propriété est privé afin que l'on ne puisse pas la remplir a l'exterieur de la classe sans avoir fait des controles au préalables, c'est a dire sans etre passé par les getteur et setteur</li>
     </ul>
-       <p> Dans notre cas, lorque l'on instancie la classe, les données vont directement au setteur, c'est une sécurité, on sait que les données ne vont pas m'importe ou</p>
 
-    <p> Si nous avons un formulaire avec 2 champs, nous aurons autant de getteur et setteur qu'il y a de champs --> 20 setteurs et 20 getteurs 
+    <p> 'new' est un mot clé permettant d'effectuer un instanciation une classe peut produire plusieurs
+        objet. Nous pouvons effectuer plusieurs instanciation 'new' . <br>
+        $panier1 represente l'objet issu de la classe 'Panier'<br>
+        </p>
+    <hr>
+    <!-- 02  -->
+    <h2>Getter / Setteur / Constructeur</h2>
+    <p> exemple : d'insertion: c'est le getteur qui permettrait d'exploiter la donnée finale et de l'inserer dans la BDD
+        <br>
+        $bdd->exec(INSERT INTO employes (prenom) VALU ($etudiant->getPrenom()));</p>
+
+    <p> __construct() est une méthode magique qui s'execute automatiquement, elle sers l'equivalent du init.php avec
+        session_star(), connexion à la BDD, autoload ect ...</p>
+    <ul>
+        <li> setteur : permet de controler les données </li>
+        <li> getteur : permet de voir / exploiter les données finales</li>
+        <li> Private $prenom : la propriété est privé afin que l'on ne puisse pas la remplir a l'exterieur de la classe
+            sans avoir fait des controles au préalables, c'est a dire sans etre passé par les getteur et setteur</li>
+    </ul>
+    <p> Dans notre cas, lorque l'on instancie la classe, les données vont directement au setteur, c'est une sécurité, on
+        sait que les données ne vont pas m'importe ou</p>
+
+    <p> Si nous avons un formulaire avec 2 champs, nous aurons autant de getteur et setteur qu'il y a de champs --> 20
+        setteurs et 20 getteurs
     </p>
-    <!--  -->
+    <hr>
+    <!-- 04 -->
 
+    <h2>Constante Static Self</h2>
+    <p> Un élément déclaré comme "static" appartient a la classe non a l'objet
+        Si je modifie un élément 'static, je modifier la classe elle même
+    </p>
+    <ul>
+        <li>$objet-> élément a lexterieur de le classe</li>
+        <li>$this-> élément d'un objet à l'interieur de le classe</li>
+        <li>class:: élément de la classe à l'exterieur de la classe</li>
+        <li>self:: élément d'une classe a l'interieur de la classe</li>
+    </ul>
+
+    <!-- 05 -->
+
+    <h2>l'Heritage</h2>
+    <p>
+        class Chat extends Animal <br>
+        si C herite de B
+        ... alors C hérite de A... <br>
+        Il n'est pas possible d'heriter de plusieurs classes en meme temps
+    </p>
+
+    <h2>Instance sans Heritage</h2>
+    <p>
+        $this->mavariable = new A; je crée un objet A que je place dans la propriété $mavariable de mon objet B. <br>
+        ... alors C hérite de A... <br>
+        return $this->mavariable->direBonjour(); // dans mon objet B ($this); je peux appeler des methodes sur mon objet
+        A
+        // Habituellemen nous mettons q'une seul fleche, mais la, $mavariable contient un objet, une autre fleche est
+        donc possible
+    </p>
+
+    <!-- 06 -->
+    <h2>Finalisation</h2>
+    <p>Une classe finale ne peut pas etre héritée</p>
+    <ul>
+        <li>Une classe finale reste instanciable</li>
+        <li>Une méthode finale peut etre présente dans une classe normale</li>
+        <li>Une méthode finale permet d'eviter qu'elle soit redifinie ou surcharger</li>
+        <li>L'interet de mettre le mot clé 'final' sur une méthode est de vérouiller afin d'empecher tout sous-classe de
+            la redefinir(quand nous voulons que le comportement d'une méthode soit préservé durant l"heritage)</li>
+    </ul>
+
+    <h2>Les Traits</h2>
+    <ul>
+        <li>Les traits ont été inventés pour repousser les limites de l'heritage. Il est possible pour une classe
+            d'hérité de plusieurs traits en meme temps</li>
+        <li> Un trait est un regroupement de methodes pouvant être importées dans une classe</li>
+    </ul>
+
+    <h2>Surcharge</h2>
+    <ul>
+        <li>Surcharge - Override : Une redefinition + surcharge me permet de prendre en compte le comportement de ma
+            fonction d'origine et d'y ajouter un traitement complémentaire</li>
+        <li>Contexte => pour la surcharge, si on faisait pas ca dans wordpress, on ne pourrais pas mettre à jour le CMS,
+            on modifirais directement les fonctions du coeur ! </li>
+    </ul>
+
+    <h2>Abstraction</h2>
+    <p>Une classe abstraite n'est pas instanciable. Les méthode abstraites n'ont pas de contenu. Lorsque l'on hérite de
+        la méthode abstraite, nous sommes obligé de les rédéfinir. Pour définir des méthode abstraite, il est nécessaire
+        que la classe suit les contient soit abstraite.</p>
+
+    <p>Le développeur qui écrit la classe 'Joueur' est au coeur de l'application (noyau) et va obliger les autres
+        développeurs a redéfinir la méthode EtreMajeur() et Devise().
+        C'est une bonne méthode de travail. on impose de bonne contraintes.
+    </p>
+    <hr>
+
+    <!-- 07 -->
+
+    <!-- 08  Il y a trop d'erreur "sale" en PHP, les methodes magiques permettent d'afficher des eurreurs "propre" en français. -->
+    <h2>Classes Existante</h2>
+    <h4> __set($nom, $valeur)</h4>
+    <p>__set() est une méthode magique qui se déclenche uniquement en cas de tentative d'affection sur une propriéte qui
+        n'existe pas</p>
+
+    <h4>__get($nom)</h4>
+    <p>__get est une methode magique qui s'execute uniquement en cas de tentative d'affichage d'une propriété qui
+        n'existe pas, donc que nous n'avons pas déclarer</p>
+
+    <h4> __call($nom, $valeur)</h4>
+    <p>__call est une methode magique qui s'execute uniquement en cas de tentative d'execution d'une methode qui
+        n'existe pas, donc que nous n'avons pas déclarer
+    </p>
+
+    <h4> Die()</h4>
+    <p>Si die() s'execute, tout les traitement suivants ne sortent pas</p>
+    <p>throw nous permet de nous envoyer dans le bloc catch et d'arreter l'execution du code</p>
+
+    <h4> Exception $e</h4>
+    <p>bloc de capture, on va attraper les exceptions 'Exception' s'il y en a une qui est levée, $e représente
+        l'Exception car en mettant ke throw je n'ai pas pu mettre le nom de la variable puisque l'execution est stoppée
+        pour arrivé ici. Try et catch fonction ensemble. Il est possible de mettre plusieurs bloc try/catch a la suite
+    </p><br>
+
+    <h4> PDOException</h4>
+    <p>PDOException est une classe prédefinie en PHP permettant d'attrapper les exceptions PDO, en cas d'erreur dans le
+        bloc 'try', on tombe directement dans le bloc 'catch'.</p>
+
+    <h4> Iterator</h4>
+    <p> Iterator est ce q'on appel un design parttern, qu'on peut definir un solution pratique a des problemes fréquent.
+        Un pattern donc une structure commune pour resoudre des problemes similaire, et ce meme si le contexte diffère
+        selon les cas.
+    </p>
+    <ul>
+        <li>rewind(): permet de se placer au debut du fichier / array / dossier</li>
+        <li>valid(): permet de verifier s'il y a des informations a parcourir</li>
+        <li>key(): permet d'afficher l'indice/la clé</li>
+        <li>current(): permet d'affichier la valeur</li>
+        <li> next(): permet d'afficher l'élement suivant</li>
+    </ul>
+    <hr>
+
+    <h2>Namespace</h2>
+    <p>Les namespaces (espace de nom) permettent de classer mes classes</p>
+    <p>Il est possible de définir un namespace avec des accolades namespace Commerce3{} mais dans ce cas la, tout les
+        namespace doivent etre déclarer avce des accolades</p>
+
+
+    <!-- 10 -->
+
+    <h2>Autoload</h2>
+    <p>spl_autoload_register() est une fonction prédefinie qui permet d'executer une fonction lorsque l'interpreteur
+        voit new dans le code <br>
+
+        Le nom a coté du new est récupere et transmis automatiquement a la fonction 'inclusionAutomatique()' un peu a la
+        maniere des méthodes magique __set, __call ... <br>
+
+        Il est indispansable de respecter une convention de nommage sur ses fichier pour que l'autoload fonctionne <br>
+
+        Habituellement, nous aisons appel a nos ficher par "required" mais imaginons que nous avons 50 classes dans 50
+        fichers; l'autoload permet d'eviter de faire 50 "required". 
+    </p>
+
+
+    <!-- 11 -->
+    <h2>MVC</h2>
+    <ul>
+        <li>Modele (échange avec la BDD - REQ SQL)</li>
+        <li>View (affichage et présentation des données - HTML/CSS)</li>
+        <li>Controller (traitement - PHP)</li>
+    </ul>
+    <p>Le but d'une architecture MVC est la separation des couches (separation des langages), c'est comme cela que fonctionne les CMS (drupal, wordpress ect ...)</p>
 </body>
+
 </html>
