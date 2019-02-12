@@ -199,6 +199,27 @@ echo '</tr>';
 
     // Pour valider la transaction, il faut executer un commit -- $pdo->commit() --> permet de valider la transaction
 
+echo "<h2> Exemple n°9 FETCH_CLASS </h2>";
+
+class Employes
+{
+    public $id_employes;
+    public $prenom;
+    public $nom;
+    public $sex;
+    public $sercice;
+    public $data_embauche;
+    public $salaire;
+    
+}
+$result = $pdo->query("SELECT * FROM employes");
+$objet = $result->fetchAll(PDO::FETCH_CLASS, "Employes");// permet de prendre le resultat de la req et d'affecter les propriétés de l'objet. Chaque valeur va être ré-associé aux differentes propriétées de la classe (il faut pour cela que l'orthographe des noms des colonnes/champs SQL correspondent aux propriétées de l'objet)
+foreach($objet as $employe)
+{
+    echo $employe->prenom . '<br>';
+}
+
+    
     
 
 
