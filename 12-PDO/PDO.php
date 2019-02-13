@@ -220,7 +220,8 @@ foreach($objet as $employe)
 }
 
     
-    
-
-
-    
+//--------------------------------------------------------------
+// PDO::FETCH_NUM : index numeriquement --> 1- Assa, 2- Marie.... 
+// PDO::FETCH_ASSOC : index avec les nom des champs de la BDD --> nom - Traore,  prenom - Assa...
+// PDO::FETCH_BOTH : index numeriquement ET les nom des champs 
+// PDO::FETCH_OBJ : retourne comme propriete public de l'objet

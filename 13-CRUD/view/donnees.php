@@ -11,12 +11,13 @@
     - une colonne permettant de modifier 
     - une colonne permettant de supprimer
  -->
+ 
 <!------------------------------ Récuperer les données ------------------------------>
 <table class="table table-bordered text-center">
 
 <thead><tr>
     <th>ID</th> 
-    <!-- a cause du array_splice permettant de ne pas afficher le champs 1 dans le formulaire d'ajout, on déclare manuellementun entete, sinon décalage  -->
+    <!-- a cause du array_splice permettant de ne pas afficher le champs 1 dans le formulaire d'ajout, on déclare manuellement un entete, sinon décalage  -->
 <?php foreach($fields as $colonne):?>
     
     <th>
@@ -29,7 +30,7 @@
     - une colonne permettant de modifier 
     - une colonne permettant de supprimer
  -->
-    <th>Afficher le détail</th>
+    <th>Voir</th>
     <th>Modifier</th>
     <th>Supprimer</th>
 
@@ -41,9 +42,6 @@
 
     <!----------- Récuperer les données interieur du tableau ----------->
     <?php foreach ($donnees as $value):
-    // echo '<pre>';print_r($value); echo '</pre>';
-    // $value possede un tableau ARRAY avec les données d'un employé par tour de boucle
-    // implode() permet d'extraire les données de chaque tableau ARRAY par employé
     ?>
     <tr>
         <td>

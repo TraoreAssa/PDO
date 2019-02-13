@@ -3,7 +3,6 @@
     <host>localhost</host>
     <user>root</user>
     <password></password>
-    <db>oo_entreprise</db>
-    <table>employe</table>
+    <db>oo_bibliotheque</db> 
+    <table>emprunt</table> <!-- Data Base -->
 </config>
-<!-- 1 -->

@@ -4,11 +4,30 @@
 ?>
 
 <form action="" method="post" class="col-md-6 offset-md-3 text-center">
-    <?php foreach($fields as $value):?>
+    <?php foreach($fields as $value):
+        
+        
+    if($value['Type'] == "date"){
+        $type = "date";
+    }
+    elseif($value['Type'] == "float"){
+        $type = "float";
+    }
+    elseif($value['Type'] == "int"){
+        $type = "int";
+    }
+    elseif($value['Type'] == "enum"){
+        $type = "enum";
+    }
+    else{
+        $type = "varchar";
+    }
+        ?>
+
 
         <div class="form-group">
             <label for="<?=$value['Field'] ?>"><?=$value['Field'] ?></label>
-            <input type="text" class="form-control" name="<?=$value['Field'] ?>" id="<?=$value['Field'] ?>" aria-describedby="<?=$value['Field'] ?>" placeholder="<?=$value['Field'] ?>">
+            <input type="<?= $type ?>" class="form-control" name="<?=$value['Field'] ?>" id="<?=$value['Field'] ?>" maxlength="5" aria-describedby="<?=$value['Field'] ?>" placeholder="<?=$value['Field'] ?>" value="<?= ($op == 'update') ? $values[$value['Field']] : ''?>">
         </div>
 
     <?php endforeach;?>
